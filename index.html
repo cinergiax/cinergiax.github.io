@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Fútbol Gratis TV: Ver Partidos en Vivo y Gratis por Android | Descarga Viva Fútbol</title>
+    <meta name="description" content="Descarga la app Viva Fútbol gratis desde futbolgratistv.com. Accede a partidos en vivo, marcadores en tiempo real, noticias exclusivas y el calendario completo de todas las ligas.">
+    <meta name="keywords" content="fútbol en vivo gratis, futbolgratistv, viva fútbol app, ver partidos android, descarga google play, resultados en vivo">
+    <link rel="canonical" href="https://www.futbolgratistv.com/"> 
+    <meta property="og:title" content="¡Fútbol Gratis TV! App Viva Fútbol para Partidos en Vivo">
+    <meta property="og:description" content="Mira fútbol en vivo gratis en tu móvil. Descarga la app Viva Fútbol.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.futbolgratistv.com/imagen-captura-app.jpg"> 
+    <meta property="og:url" content="https://www.futbolgratistv.com/">
+    
+    <style>
+        /* [ESTILOS GLOBALES] */
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #0d1a26;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .hero-container {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('placeholder-estadio.jpg'); 
+            background-size: cover;
+            background-position: center;
+            padding: 60px 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out; /* ANIMACIÓN DE ENTRADA */
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 3.8em;
+            color: #f7b731;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            color: #00ff7f;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #cccccc;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* [BOTÓN DESCARGAR] */
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 35px; 
+            background-color: #4CAF50; 
+            color: white;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: 800;
+            border-radius: 5px; 
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 0 #388E3C;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .download-button:hover {
+            background-color: #388E3C;
+            box-shadow: 0 2px 0 #2E7D32;
+            transform: translateY(3px);
+        }
+        
+        .play-store-icon {
+            margin-right: 10px;
+            font-size: 2em; 
+            line-height: 1;
+        }
+
+        /* [CARRUSEL] */
+        .carousel-section {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto 40px auto; 
+            padding: 20px;
+            background-color: #1a2a3a;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-section h2 {
+            font-size: 2.5em;
+            color: #f7b731;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            animation: slideImages 15s infinite; /* ANIMACIÓN DEL CARRUSEL */
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+
+        /* [FOOTER] */
+        footer {
+            width: 100%;
+            padding: 20px 0;
+            background-color: #000000;
+            color: #999999;
+            font-size: 0.9em;
+            margin-top: auto; 
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer a {
+            color: #f7b731;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* [ANIMACIONES CSS] */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideImages {
+            0%, 25% { transform: translateX(0%); }
+            30%, 55% { transform: translateX(-100%); }
+            60%, 85% { transform: translateX(-200%); }
+            90%, 100% { transform: translateX(0%); }
+        }
+
+        /* [MEDIA QUERY: RESPONSIVE DESIGN] */
+        @media (max-width: 600px) {
+            body { align-items: flex-start; padding: 20px 0; }
+            .hero-container, .carousel-section { padding: 30px 20px; border-radius: 0; width: 100%; box-shadow: none; }
+            h1 { font-size: 2.5em; }
+            .subtitle { font-size: 1.3em; }
+            p { font-size: 1em; }
+            .download-button { width: 90%; padding: 12px 10px; font-size: 1.1em; }
+            .play-store-icon { font-size: 1.8em; }
+            .carousel-section h2 { font-size: 1.8em; }
+        }
+        
+        
+       .profile {
+
+    background-color: var(--primary-bg);
+
+    border-radius: 8px;
+
+    height: 100px;
+
+    width: 100;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: height 0.2s ease;
+
+    /* */
+
+    display: inline-block;
+
+    margin: 5px;
+
+    vertical-align: center;
+align-items: center;
+
+                justify-content: center;
+}
+ 
+        
+        
+    </style>
+</head>
+<body>
+
+    <div class="hero-container">
+        <h1>¡VIVA FÚTBOL!</h1>
+        
+        <center >
+<div class="profile" onclick="expand(this)">
+
+                <div class="profile__banner" style="background-color: #3D2C56"></div>
+
+                <div>
+
+                    <div class="profile__pic">
+
+                       <center><a href="https://play.google.com/store/apps/details?id=com.go.vivafutbolx">
+
+<img src="https://i.ibb.co/p6xc04yS/243-sin-t-tulo.png"
+
+ width="100" height="100px" alt="Paisaje"></a></center>
+
+ 
+                </div>
+
+                
+
+</div >
+
+            </div>
+
+     </center>  
+
+        <h2 class="subtitle">⚽ El estadio, en la palma de tu mano. Mira partidos **EN VIVO Y GRATIS**.</h2>
+        
+        <p>No te pierdas el grito de gol. Accede a transmisiones, marcadores en tiempo real, noticias exclusivas y el calendario completo de tu liga favorita. ¡Todo sin costo!</p>
+
+        <a 
+            href="https://play.google.com/store/apps/details?id=com.go.vivafutbolx" 
+            target="_blank" 
+            class="download-button"
+        > 
+            <span class="play-store-icon">▶️</span> DESCARGAR EN GOOGLE PLAY
+        </a>
+        
+        <p style="margin-top: 50px; font-size: 0.9em; color: #aaa;">Disponible exclusivamente para Android.</p>
+    </div>
+ 
+    <div class="carousel-section">
+        <h2>Capturas de Pantalla de Viva Fútbol</h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <img src="https://i.imgur.com/pO3stzO.png" alt="Pantalla principal de la app">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://i.imgur.com/SUMKECS.png" alt="Vista de partido en vivo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://i.imgur.com/IAtrtA8.png" alt="Resultados y sección de noticias">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://i.imgur.com/BnYP17z.png" alt="Vista de partido en vivo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://i.imgur.com/YYOjkOR.png" alt="Vista de partido en vivo">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>
+            &copy; 2025 futbolgratistv.com. Todos los derechos reservados. |
+            <a href="https://www.futbolgratistv.com/politica-privacidad.html" target="_blank">Política de Privacidad</a> |
+            <a href="https://www.futbolgratistv.com/terminos.html" target="_blank">Términos de Uso</a>
+        </p>
+    </footer>
+
+</body>
+</html>
