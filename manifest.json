@@ -1,0 +1,18 @@
+{
+  "name": "FutbolGratis Live",
+  "short_name": "FutbolGratis",
+  "description": "Ver fútbol en vivo y agenda deportiva HD desde tu móvil.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#bedb1e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUmWqBkR4GQwL5V94WLouXyYRHcYJVSrypyEdhPNFtbi4VyHMQPBEoK163ij2sSRDI3983Z6wPSOuMM9gf3OCnGwK82j1anr_eQ_C7Fc8WDg6Dt-0iit_qKU77uKvN_iiGHaW5y6wp4_T-CFOsPErv9M_42fiuFcTf1myxHFbciXHzGr9RUHLwaZ1WOGf5/s1140/welcome.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg",
+      "purpose": "any maskable"
+    }
+  ]
+}
