@@ -233,7 +233,7 @@
 
         window.loadStream = (url) => {
             const container = document.getElementById('screen-container');
-            container.innerHTML = `<div id="loader" style="display:block"></div><iframe id="videoFrame" src="${url}" allowfullscreen scrolling="no" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"></iframe>`;
+            container.innerHTML = `<div id="loader" style="display:block"></div><iframe id="videoFrame" src="${url}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="true" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation"></iframe>`;
             const frame = document.getElementById('videoFrame');
             frame.onload = () => { document.getElementById('loader').style.display = "none"; };
             if (window.innerWidth < 1024) window.scrollTo({ top: 0, behavior: 'smooth' });
