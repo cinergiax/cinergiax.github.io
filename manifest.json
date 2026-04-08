@@ -8,11 +8,15 @@
   "theme_color": "#bedb1e",
   "orientation": "portrait",
   "icons": [
-    {
-      "src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUmWqBkR4GQwL5V94WLouXyYRHcYJVSrypyEdhPNFtbi4VyHMQPBEoK163ij2sSRDI3983Z6wPSOuMM9gf3OCnGwK82j1anr_eQ_C7Fc8WDg6Dt-0iit_qKU77uKvN_iiGHaW5y6wp4_T-CFOsPErv9M_42fiuFcTf1myxHFbciXHzGr9RUHLwaZ1WOGf5/s1140/welcome.jpg",
-      "sizes": "512x512",
-      "type": "image/jpg",
-      "purpose": "any maskable"
-    }
+  {
+    "src": "android-chrome-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "android-chrome-512x512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
   ]
 }
