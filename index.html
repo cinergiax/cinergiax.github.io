@@ -35,6 +35,12 @@
 
 
     <meta name="monetag" content="1774b40e71e52dbd9e16a8ab132428a5">
+
+<script>(function(s){s.dataset.zone='10851661',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+
+
+
     
     <style>
         :root { --primary: #bedb1e; --bg-dark: #020617; --bg-card: #0f172a; }
@@ -108,8 +114,7 @@
 </head>
 <body>
 
-    <div id="click-layer" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; cursor: pointer; background: rgba(0,0,0,0);"></div>
-
+    
     <header class="navbar">
         <div class="logo-text">FUTBOL<span class="logo-dot">GRATIS</span></div>
         <div class="flex items-center gap-4">
@@ -150,32 +155,7 @@
         </div>
     </div>
 
-    <script>
-        (function() {
-            const directLink = "https://omg10.com/4/8632131"; 
-            const layer = document.getElementById('click-layer');
-            const intervalInMinutes = 2;
-            const storageKey = 'last_monetag_click';
-
-            function shouldShowAd() {
-                const lastClick = localStorage.getItem(storageKey);
-                if (!lastClick) return true;
-                const now = new Date().getTime();
-                const diff = now - parseInt(lastClick);
-                return (diff / (1000 * 60)) >= intervalInMinutes;
-            }
-
-            if (!shouldShowAd() && layer) layer.style.display = 'none';
-
-            if (layer) {
-                layer.addEventListener('click', function() {
-                    window.open(directLink, '_blank');
-                    localStorage.setItem(storageKey, new Date().getTime().toString());
-                    layer.style.display = 'none';
-                });
-            }
-        })();
-    </script>
+    
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
