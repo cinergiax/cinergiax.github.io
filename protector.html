@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protector de Señal</title>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const stream = urlParams.get('stream');
+
+        if (stream) {
+            // Pasamos el enlace al reproductor intermedio limpio
+            // NOTA: Reemplaza "tuweb.com/reproductor.html" por la URL real de tu segundo archivo
+            const visorUrl = "https://futbolgratistv.com/reproductor1.html"; 
+            const finalUrl = visorUrl + "?stream=" + encodeURIComponent(stream);
+
+            // El SANDBOX externo protege toda la página contra redirecciones y popups agresivos
+            document.write(
+                '<iframe src="' + finalUrl + '" ' +
+                'sandbox="allow-same-origin allow-scripts allow-presentation allow-forms" ' +
+                'allowfullscreen="true" allow="autoplay; fullscreen"></iframe>'
+            );
+        } else {
+            document.write('<div style="color:white;text-align:center;padding-top:20px;font-family:sans-serif;">Esperando señal...</div>');
+        }
+    </script>
+</body>
+</html>
