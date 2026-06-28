@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visor de Señal</title>
+    <title>Visor de Señal Estable</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
+        body, html { margin: 0; padding: 0; width: 100% !important; height: 100% !important; background: #000; overflow: hidden; }
         
-        /* Forzamos que el iframe ocupe el espacio completo de la pantalla visible (viewport) */
-        iframe { 
+        /* TRUCO 1: Forzado indestructible por encima de cualquier cambio de script */
+        iframe, #video { 
             width: 100vw !important; 
             height: 100vh !important; 
+            min-height: 100vh !important;
+            min-width: 100vw !important;
             border: none !important; 
             position: absolute !important; 
             top: 0 !important; 
             left: 0 !important; 
             z-index: 1 !important;
+            display: block !important;
+            visibility: visible !important;
         }
 
         .loader-spin { border: 2px solid rgba(34, 197, 94, 0.1); border-radius: 50%; width: 32px; height: 32px; animation: spin 1s linear infinite; border-bottom-color: #22c55e; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        #loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #020617; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 99; transition: opacity 0.5s; }
+        #loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #020617; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 999; transition: opacity 0.5s; }
     </style>
 </head>
 <body>
@@ -31,6 +35,16 @@
     </div>
 
     <script>
+        // TRUCO 2: Congela cualquier redirección o intento de romper el frame que use el reproductor original
+        var prevent_bust = 0;
+        window.onbeforeunload = function() { prevent_bust++; };
+        setInterval(function() {
+            if (prevent_bust > 0) {
+                prevent_bust -= 2;
+                window.top.location = 'https://futbolgratistv.github.io/reproductor1.html?stream=2'; // Engaña al navegador
+            }
+        }, 1);
+
         function getParameterByName(name) {
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
                 results = regex.exec(location.search);
@@ -41,22 +55,22 @@
 
         if (streamUrl) {
             try {
-                // Inyectamos el iframe libre de sandbox interno pero forzado por CSS
+                // Inyectamos el iframe asegurando que no tenga políticas de referencia que le avisen dónde está metido
                 document.write(
                     '<iframe id="video" src="' + streamUrl + '" ' +
-                    'allow="autoplay; fullscreen" referrerpolicy="no-referrer" ' +
+                    'allow="autoplay; fullscreen; encrypted-media" referrerpolicy="no-referrer" ' +
                     'scrolling="no" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">' +
                     '</iframe>'
                 );
                 
-                // Loader de 3 segundos para que cargue el búfer de la señal
+                // Mantenemos el loader para ocultar el proceso de carga y el intento de parpadeo del script
                 setTimeout(function() {
                     var loader = document.getElementById('loading');
                     if(loader) {
                         loader.style.opacity = '0';
                         setTimeout(function() { loader.style.display = 'none'; }, 500);
                     }
-                }, 3000);
+                }, 4000); // Subido a 4 segundos para darle estabilidad al búfer
             } catch (e) {
                 document.write('<div style="color:red;text-align:center;padding-top:20px;">Error de señal</div>');
             }
