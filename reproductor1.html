@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor en Vivo - FutbolGratis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; overflow: hidden; }
+        
+        /* Progress Circular idéntico al Index */
+        .loader-spin {
+            border: 2px solid rgba(34, 197, 94, 0.1);
+            border-bottom: 2px solid #22c55e;
+            border-radius: 50%;
+            width: 32px; height: 32px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        #loading-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #020617;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        iframe {
+            width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0;
+            border: none;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loading-screen">
+        <div class="loader-spin mb-4"></div>
+        <p class="text-[10px] uppercase font-bold tracking-[0.2em] text-slate-400">
+            Sincronizando <span class="text-green-500">Señal</span>
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        // Función para leer los parámetros de la URL
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        // Capturamos el enlace que viene desde la agenda principal (?stream=...)
+        var streamUrl = getParameterByName("stream");
+
+        if (streamUrl) {
+            try {
+                // Inyección limpia del iframe con soporte total para autoplay y pantalla completa
+                document.write(
+                    '<iframe allow="autoplay; encrypted-media; fullscreen" ' +
+                    'src="' + streamUrl + '" ' +
+                    'id="iframe" frameborder="0" scrolling="no" allowfullscreen="true" ' +
+                    'sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-top-navigation">' +
+                    '</iframe>'
+                );
+
+                // Ocultamos la pantalla de carga suavemente tras 3 segundos
+                setTimeout(function() {
+                    var loader = document.getElementById('loading-screen');
+                    if(loader) {
+                        loader.style.opacity = '0';
+                        setTimeout(function() { loader.style.display = 'none'; }, 500);
+                    }
+                }, 3000);
+
+            } catch (e) {
+                document.write('<div style="color:#ef4444; text-align:center; padding-top:40px; font-family:sans-serif; font-weight:bold; font-size:12px;">ERROR AL CARGAR LA SEÑAL</div>');
+            }
+        } else {
+            document.write('<div style="color:#64748b; text-align:center; padding-top:40px; font-family:sans-serif; font-weight:bold; font-size:12px; uppercase tracking-wider">ESPERANDO ENLACE DE TRANSMISIÓN...</div>');
+        }
+    </script>
+</body>
+</html>
