@@ -318,14 +318,14 @@
 
 
 
+
 <div class="flex flex-col gap-1 overflow-hidden">
     ${data.liga ? `<div><span class="text-[9px] font-black tracking-wide text-cyan-400/90 uppercase border border-cyan-500/20 px-1.5 py-0.2 rounded bg-cyan-950/40 inline-block">${data.liga}</span></div>` : ''}
     <span class="text-slate-200 font-bold tracking-tight truncate flex items-center gap-1.5">
-        ${data.live ? '<img src="https://i.imgur.com/FhIaVzD.gif" alt="EN VIVO" class="w-3.5 h-3.5 inline-block shrink-0" />' : ''}
+        ${data.live ? '<span class="bg-red-600/90 border border-red-500/30 p-1 rounded-md flex items-center justify-center shrink-0"><img src="https://i.imgur.com/FhIaVzD.gif" alt="EN VIVO" class="w-3.5 h-3.5 block" /></span>' : ''}
         ${data.titulo}
     </span>
 </div>
-
 
 
 
