@@ -315,10 +315,21 @@
                                 </div>
                             </div>
 
-                            <div class="flex flex-col gap-1 overflow-hidden">
-                                ${data.liga ? `<div><span class="text-[9px] font-black tracking-wide text-cyan-400/90 uppercase border border-cyan-500/20 px-1.5 py-0.2 rounded bg-cyan-950/40 inline-block">${data.liga}</span></div>` : ''}
-                                <span class="text-slate-200 font-bold tracking-tight truncate">${data.live ? '🔴 ' : ''}${data.titulo}</span>
-                            </div>
+
+
+
+<div class="flex flex-col gap-1 overflow-hidden">
+    ${data.liga ? `<div><span class="text-[9px] font-black tracking-wide text-cyan-400/90 uppercase border border-cyan-500/20 px-1.5 py-0.2 rounded bg-cyan-950/40 inline-block">${data.liga}</span></div>` : ''}
+    <span class="text-slate-200 font-bold tracking-tight truncate flex items-center gap-1.5">
+        ${data.live ? '<img src="https://i.imgur.com/FhIaVzD.gif" alt="EN VIVO" class="w-3.5 h-3.5 inline-block shrink-0" />' : ''}
+        ${data.titulo}
+    </span>
+</div>
+
+
+
+
+                            
 
                         </div>
                         <svg class="arrow-icon w-3.5 h-3.5 text-slate-500 transition-transform duration-200 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
